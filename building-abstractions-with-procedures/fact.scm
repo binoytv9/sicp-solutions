@@ -1,3 +1,6 @@
+	;A linear recursive process for computing n!
+
+
 (define (fact n)
 	(if (= n 0)
 		1
