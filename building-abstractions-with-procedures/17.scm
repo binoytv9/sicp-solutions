@@ -8,12 +8,10 @@
 ;This algorithm takes a number of steps that is linear in b. Now suppose we include, together with addition, operations double, which doubles an integer, and halve, which divides an (even) integer by 2. Using these, design a multiplication procedure analogous to fast-expt that uses a logarithmic number of steps. 
 
 
-(define (* a b) (fast a (- b 1)))
-
-(define (fast a b)
+(define (* a b)
 	(cond	((= b 0) 0)
-		((even? b) (+ (double a) (fast a (halve b))))
-		(else (+ a (fast a (- b 1))))))
+		((even? b) (double (* a (halve b))))
+		(else (+ a (* a (- b 1))))))
 
 (define (double x) (+ x x))
 
